@@ -1,0 +1,10 @@
+{
+  "name": "relay-private-worker-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build-runtime.mjs && npm run build && node --test tests/*.test.mjs"
+  }
+}

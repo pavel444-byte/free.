@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f6f1" />
+    <meta name="description" content="One calm workspace for your AI models, agents, and tools." />
+    <title>doter — your AI workspace</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2220%22 fill=%22%231b3327%22/%3E%3Ccircle cx=%2225%22 cy=%2225%22 r=%228%22 fill=%22%23ddedcb%22/%3E%3Ccircle cx=%2239%22 cy=%2225%22 r=%228%22 fill=%22%23ddedcb%22/%3E%3Ccircle cx=%2225%22 cy=%2239%22 r=%228%22 fill=%22%23ddedcb%22/%3E%3Ccircle cx=%2239%22 cy=%2239%22 r=%228%22 fill=%22%23ddedcb%22/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <div id="auth-root" class="auth-page"><p>Opening doter…</p></div>
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-top">
+          <a class="brand" href="#home" data-route="home" aria-label="Doter home">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span>doter</span>
+          </a>
+          <button class="workspace-switcher" type="button" data-action="workspace-menu" aria-label="Workspace menu">
+            <span class="workspace-avatar">P</span>
+            <span class="workspace-copy"><strong>Personal workspace</strong><small>Local preview</small></span>
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </button>
+        </div>
+
+        <nav class="side-nav" aria-label="Workspace">
+          <p class="nav-label">Workspace</p>
+          <button class="nav-item is-active" data-route="home" type="button"><span class="nav-icon" data-icon="home"></span><span>Overview</span></button>
+          <button class="nav-item" data-route="chat" type="button"><span class="nav-icon" data-icon="chat"></span><span>Conversations</span></button>
+          <button class="nav-item" data-route="agents" type="button"><span class="nav-icon" data-icon="spark"></span><span>Agents</span><span class="nav-count" id="agent-count">0</span></button>
+
+          <p class="nav-label nav-label-spaced">Connections</p>
+          <button class="nav-item" data-route="providers" type="button"><span class="nav-icon" data-icon="cube"></span><span>Model providers</span><span class="nav-count" id="provider-count">0</span></button>
+          <button class="nav-item" data-route="integrations" type="button"><span class="nav-icon" data-icon="grid"></span><span>Apps & integrations</span></button>
+          <button class="nav-item" data-route="mcp" type="button"><span class="nav-icon" data-icon="plug"></span><span>MCP servers</span><span class="nav-count" id="mcp-count">0</span></button>
+          <button class="nav-item" data-route="computer" type="button"><span class="nav-icon" data-icon="eye"></span><span>Browser & computer</span></button>
+
+          <p class="nav-label nav-label-spaced">Workspace data</p>
+          <button class="nav-item" data-route="accounts" type="button"><span class="nav-icon" data-icon="shield"></span><span>Account</span></button>
+          <button class="nav-item" data-route="activity" type="button"><span class="nav-icon" data-icon="activity"></span><span>Activity</span></button>
+          <button class="nav-item" data-route="usage" type="button"><span class="nav-icon" data-icon="chart"></span><span>Usage</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="local-status"><span class="status-dot"></span><span><strong>Running locally</strong><small>Credentials saved on this device</small></span></div>
+          <button class="profile-button" type="button" data-route="settings">
+            <span class="profile-avatar">L</span>
+            <span class="profile-copy"><strong>Local user</strong><small>Personal workspace</small></span>
+            <span class="more-dots" aria-hidden="true">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-shell">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Personal workspace</span><span class="crumb-divider">/</span><strong id="current-page-name">Overview</strong></div>
+          <div class="topbar-actions">
+            <button class="topbar-button search-trigger" type="button" data-action="open-search"><span data-icon="search"></span><span>Search</span><kbd>⌘ K</kbd></button>
+            <button class="topbar-icon-button" type="button" data-action="open-help" aria-label="Help"><span data-icon="help"></span></button>
+            <button class="topbar-icon-button" type="button" data-route="settings" aria-label="Settings"><span data-icon="settings"></span></button>
+          </div>
+        </header>
+        <div id="view-root" class="view-root" tabindex="-1"></div>
+      </main>
+    </div>
+    <div id="modal-root"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

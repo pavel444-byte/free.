@@ -1,0 +1,7 @@
+{
+  "name": "doter-agent-runtime",
+  "main": "dist/index.js",
+  "compatibility_date": "2026-11-01",
+  "durable_objects": {"bindings": [{"name": "AGENTS", "class_name": "DoterAgent"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["DoterAgent"]}]
+}
